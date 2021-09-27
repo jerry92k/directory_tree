@@ -29,7 +29,7 @@ public class DirectoryTree {
         }
     }
 
-    public void outputCurDir(DirectoryItem curDir){
+    private void outputCurDir(DirectoryItem curDir){
         StringBuilder sb=new StringBuilder();
                 for(int i=0; i<curDir.getDepth(); i++){
             sb.append("\t");
@@ -46,7 +46,7 @@ public class DirectoryTree {
         System.out.println(sb.toString());
     }
 
-    public void pushChildDirectories(Deque<DirectoryItem> directories, Path curPath, int nextDepth){
+    private void pushChildDirectories(Deque<DirectoryItem> directories, Path curPath, int nextDepth){
         try {
                 Files.list(curPath)
                         .filter(path-> Files.isDirectory(path))
